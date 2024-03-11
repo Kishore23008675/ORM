@@ -5,8 +5,6 @@
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
-
-Include your ER diagram here
 ![Screenshot 2024-03-11 201712 (1)](https://github.com/Kishore23008675/ORM/assets/144979375/7579f896-8583-4536-a58b-eef248d5b698)
 
 ## DESIGN STEPS
@@ -24,9 +22,43 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+admin.py 
 
-Include your code here
+from django.contrib import admin
+from .models import book_details,book_detailsAdmin
+admin.site.register(book_details,book_detailsAdmin)
 
+model.py
+
+from django.db import models
+from django.contrib import admin
+class book_details(models.Model):
+    no=models.IntegerField(primary_key=True);
+    name=models.CharField(max_length=66);
+    author=models.CharField(max_length=66);
+    year=models.IntegerField();
+    price=models.IntegerField();
+
+class book_detailsAdmin(admin.ModelAdmin):
+    list_diaplay=("no","name","author","year","price");
+```
+```
+from django.db import models
+from django.contrib import admin
+
+
+# Create your models here.
+class Student (models.Model):
+    referencenumber=models.CharField(primary_key=True,max_length=20,help_text="reference number")
+    name=models.CharField(max_length=100)
+    age=models.IntegerField()
+    email=models.EmailField()
+    number=models.IntegerField()
+
+class StudentAdmin(admin.ModelAdmin):
+    list_display=('referencenumber','name','age','email','number')
+```
 ## OUTPUT
 
 Include the screenshot of your admin page.
