@@ -5,7 +5,7 @@
 To develop a Django application to store and retrieve data from a Book database using Object Relational Mapping(ORM).
 
 ## Entity Relationship Diagram
-![Screenshot 2024-03-11 201712 (1)](https://github.com/Kishore23008675/ORM/assets/144979375/7579f896-8583-4536-a58b-eef248d5b698)
+![19a6348c-8cf0-4028-b681-ba0126dfdb0b](https://github.com/Kishore23008675/ORM/assets/144979375/81b6d4b0-4f2e-4e8f-b961-56228cdec54c)
 
 ## DESIGN STEPS
 
@@ -24,29 +24,23 @@ Execute Django admin and create details for 10 books
 ## PROGRAM
 ```
 admin.py 
-
-from django.contrib import admin
-from .models import book_details,book_detailsAdmin
-admin.site.register(book_details,book_detailsAdmin)
-
+from django.contrib import admin 
+from .models import libraryBook,libraryBookAdmin
+admin.site.register(libraryBook,libraryBookAdmin)
+ 
 model.py
-
 from django.db import models
 from django.contrib import admin
-class book_details(models.Model):
-    no=models.IntegerField(primary_key=True);
-    name=models.CharField(max_length=66);
-    author=models.CharField(max_length=66);
-    year=models.IntegerField();
+class libraryBook(models. Model):
+    title=models.CharField(max_length=15);
+    BookID=models.IntegerField(primary_key=True);
+    author=models.CharField(max_length=10);
+    publisher=models.CharField(max_length=8);
     price=models.IntegerField();
-
-class book_detailsAdmin(admin.ModelAdmin):
-    list_diaplay=("no","name","author","year","price");
-```
-```
-from django.db import models
-from django.contrib import admin
-
+    pages=models.IntegerField();
+class libraryBookAdmin(admin.ModelAdmin):
+   list_display=("title","BookID","author","publisher","price","pages");
+ 
 
 # Create your models here.
 class Student (models.Model):
@@ -60,9 +54,9 @@ class StudentAdmin(admin.ModelAdmin):
     list_display=('referencenumber','name','age','email','number')
 ```
 ## OUTPUT
+![Screenshot 2024-03-21 221859](https://github.com/Kishore23008675/ORM/assets/144979375/065344e6-5e3d-4c40-adbe-bb4e4808e851)
 
-Include the screenshot of your admin page.
-![Screenshot 2024-03-11 201332](https://github.com/Kishore23008675/ORM/assets/144979375/85c0097e-fae6-4e2c-843f-29350ae7ae5e)
-![Screenshot 2024-03-11 201355](https://github.com/Kishore23008675/ORM/assets/144979375/cf6d8d8d-3b38-4bee-94a6-25c839189696)
+Include the screenshot of your admin page. 
+
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
